@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import android.widget.Toast
 import com.example.operationclient.R
 import com.example.operationclient.databinding.ActivityOperationAdminBinding
@@ -34,6 +35,8 @@ class OperationActivityAdmin : AppCompatActivity() {
         initTab(context)
 
         openAddOperationFragment()
+
+        openUpdateOperationFragment()
     }
 
     @JvmSuppressWildcards
@@ -51,10 +54,6 @@ class OperationActivityAdmin : AppCompatActivity() {
 
                 for (item in snapshot.children){
                     operations.add(item.getValue(t)!!)
-                }
-
-                operations.forEach {
-                    Log.d("","$it")
                 }
 
                 if (operations != null) {
@@ -90,5 +89,14 @@ class OperationActivityAdmin : AppCompatActivity() {
 
     private fun openUpdateOperationFragment() {
 
+        val setOperationFrag = SetOperationFragment()
+
+        binding.listProd.setOnItemClickListener { parent, view, position, id ->
+
+            val textViewName = parent.adapter.getView(position,view,parent).findViewById<TextView>(R.id.productName)
+
+            setOperationFrag.show(supportFragmentManager,textViewName.text.toString())
+
+        }
     }
 }
