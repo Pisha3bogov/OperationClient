@@ -13,13 +13,16 @@
         android:theme="@style/Theme.OperationClient"
         tools:targetApi="31" >
         <activity
-            android:name=".ui.main.OperationActivityAdmin"
+            android:name=".ui.main.OperationList"
+            android:exported="false" />
+        <activity
+            android:name=".ui.main.admin.OperationActivityAdmin"
             android:exported="false" />
         <activity
             android:name=".ui.auth.ResetPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.main.OperationActivityUser"
+            android:name=".ui.main.user.OperationActivityUser"
             android:exported="false" />
         <activity
             android:name=".ui.auth.ChangePasswordActivity"

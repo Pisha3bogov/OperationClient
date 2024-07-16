@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Изменить цену"
+        android:gravity="center"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/nameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="69dp"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:gravity="center"
+        android:text="Ошибка обратитесь к разработчику"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/priceEditText"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Ошибка"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/errorTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:textSize="15dp" />
+
+    <Button
+        android:id="@+id/setProductPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="Изменить" />
+
+    <Button
+        android:id="@+id/delProduct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#ff2400"
+        android:text="Удалить" />
+
+
+</LinearLayout>

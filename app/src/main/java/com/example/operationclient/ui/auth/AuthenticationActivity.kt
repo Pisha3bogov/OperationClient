@@ -6,8 +6,8 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
 import com.example.operationclient.databinding.ActivityAuthenticationBinding
-import com.example.operationclient.ui.main.OperationActivityAdmin
-import com.example.operationclient.ui.main.OperationActivityUser
+import com.example.operationclient.ui.main.admin.OperationActivityAdmin
+import com.example.operationclient.ui.main.user.OperationActivityUser
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.FirebaseDatabase

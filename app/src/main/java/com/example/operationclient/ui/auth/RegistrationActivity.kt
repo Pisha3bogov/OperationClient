@@ -104,7 +104,7 @@ class RegistrationActivity : AppCompatActivity() {
                 ).not() -> {
                     Toast.makeText(
                         this@RegistrationActivity,
-                        "Код партнера введен не верно",
+                        "Код партнера введен не верно, уточните его у руководителя",
                         Toast.LENGTH_SHORT
                     ).show()
                 }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Добавить продукт"
+        android:gravity="center"
+        android:textSize="30dp" />
+
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="244dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Введите название" />
+
+    <EditText
+        android:id="@+id/priceEditText"
+        android:layout_width="244dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="Введите цену"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/addProduct"
+        android:layout_width="162dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Добавить" />
+
+
+</LinearLayout>
