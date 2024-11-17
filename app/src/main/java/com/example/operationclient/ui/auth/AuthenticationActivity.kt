@@ -6,7 +6,8 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
 import com.example.operationclient.databinding.ActivityAuthenticationBinding
-import com.example.operationclient.ui.main.admin.OperationActivityAdmin
+import com.example.operationclient.ui.main.admin.MainAdminActivity
+import com.example.operationclient.ui.main.user.MainUserActivity
 import com.example.operationclient.ui.main.user.OperationActivityUser
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -90,9 +91,10 @@ class AuthenticationActivity : AppCompatActivity() {
                                 openActivity(firebaseUser)
 
                             } else {
+                                binding.passwordTextView.text.clear()
                                 Toast.makeText(
                                     this@AuthenticationActivity,
-                                    task.exception!!.message.toString(),
+                                    "Неправильный логин или пароль",
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }
@@ -122,7 +124,7 @@ class AuthenticationActivity : AppCompatActivity() {
 
                 if (key) {
                     val intent = Intent(this@AuthenticationActivity,
-                        OperationActivityAdmin::class.java)
+                        MainAdminActivity::class.java)
 
                     startActivity(intent)
                     finish()
@@ -130,7 +132,7 @@ class AuthenticationActivity : AppCompatActivity() {
 
                     val intent = Intent(
                         this@AuthenticationActivity,
-                        OperationActivityUser::class.java
+                        MainUserActivity::class.java
                     )
 
                     startActivity(intent)

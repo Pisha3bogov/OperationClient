@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" >
+    xmlns:tools="http://schemas.android.com/tools">
 
     <application
         android:allowBackup="true"
@@ -11,13 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OperationClient"
-        tools:targetApi="31" >
+        tools:targetApi="31">
+
         <activity
-            android:name=".ui.main.OperationList"
-            android:exported="false" />
+            android:name=".ui.main.admin.MainAdminActivity"
+            android:exported="true"
+            android:label="@string/title_activity_main_admin">
+        </activity>
         <activity
-            android:name=".ui.main.admin.OperationActivityAdmin"
-            android:exported="false" />
+            android:name=".ui.main.user.MainUserActivity"
+            android:exported="false">
+        </activity>
         <activity
             android:name=".ui.auth.ResetPasswordActivity"
             android:exported="false" />
@@ -25,14 +29,11 @@
             android:name=".ui.main.user.OperationActivityUser"
             android:exported="false" />
         <activity
-            android:name=".ui.auth.ChangePasswordActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.auth.RegistrationActivity"
             android:exported="false" />
         <activity
             android:name=".ui.auth.AuthenticationActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

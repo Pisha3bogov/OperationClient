@@ -1,12 +1,20 @@
-package com.example.operationclient.ui.main.user
+package com.example.operationclient.ui.main.admin.ui.operation
 
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import android.widget.Toast
-import com.example.operationclient.databinding.ActivityOperationUserBinding
+import androidx.fragment.app.setFragmentResultListener
+import com.example.operationclient.R
+import com.example.operationclient.databinding.FragmentOperationAdminBinding
 import com.example.operationclient.ui.main.Operation
 import com.example.operationclient.ui.main.OperationArrayAdapter
 import com.google.firebase.database.DataSnapshot
@@ -16,17 +24,48 @@ import com.google.firebase.database.GenericTypeIndicator
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
-class OperationActivityUser : AppCompatActivity() {
 
-    lateinit var binding: ActivityOperationUserBinding
+class OperationFragmentAdmin : Fragment() {
+
+    private var _binding : FragmentOperationAdminBinding? = null
+    private val binding get() = _binding!!
     lateinit var database: DatabaseReference
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityOperationUserBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
-        val context = binding.root.context
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+
+        _binding = FragmentOperationAdminBinding.inflate(inflater, container, false)
+
+        val root: View = binding.root
+
+        return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val context = view.context
+        val addOperFrag = AddOperationFragment()
+        val setOperFrag = SetOperationFragment()
+
+        binding.openAddOperationFragment.setOnClickListener {
+            addOperFrag.show(parentFragmentManager,"Open add product fragment")
+        }
+
+        binding.listProd.setOnItemClickListener { parent, view, position, id ->
+
+            val textViewName = parent.adapter.getView(position,view,parent).findViewById<TextView>(R.id.productName)
+
+            setOperFrag.show(parentFragmentManager,textViewName.text.toString())
+
+        }
 
         initTab(context)
     }

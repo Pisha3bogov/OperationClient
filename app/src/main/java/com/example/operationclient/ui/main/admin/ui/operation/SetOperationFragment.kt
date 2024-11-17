@@ -1,14 +1,12 @@
-package com.example.operationclient.ui.main.admin
+package com.example.operationclient.ui.main.admin.ui.operation
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.example.operationclient.databinding.FragmentSetOperationBinding
 import com.example.operationclient.ui.main.Operation
-import com.example.operationclient.ui.main.OperationArrayAdapter
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError

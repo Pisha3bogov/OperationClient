@@ -1,12 +1,15 @@
-package com.example.operationclient.ui.main.user
+package com.example.operationclient.ui.main.user.ui.operation
 
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import com.example.operationclient.databinding.ActivityOperationUserBinding
+import androidx.fragment.app.Fragment
+import com.example.operationclient.databinding.FragmentOperationUserBinding
 import com.example.operationclient.ui.main.Operation
 import com.example.operationclient.ui.main.OperationArrayAdapter
 import com.google.firebase.database.DataSnapshot
@@ -17,16 +20,30 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
-class OperationActivityUser : AppCompatActivity() {
 
-    lateinit var binding: ActivityOperationUserBinding
+class OperationFragmentUser : Fragment() {
+
+    private var _binding : FragmentOperationUserBinding? = null
+    private val binding get() = _binding!!
     lateinit var database: DatabaseReference
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityOperationUserBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
-        val context = binding.root.context
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+
+        _binding = FragmentOperationUserBinding.inflate(inflater, container, false)
+
+        val root: View = binding.root
+
+        return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val context = view.context
 
         initTab(context)
     }
@@ -73,4 +90,5 @@ class OperationActivityUser : AppCompatActivity() {
         database.child("operations").addValueEventListener(readOperationListener)
 
     }
+
 }

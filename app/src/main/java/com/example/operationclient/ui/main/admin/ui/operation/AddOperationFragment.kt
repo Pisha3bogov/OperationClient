@@ -1,4 +1,4 @@
-package com.example.operationclient.ui.main.admin
+package com.example.operationclient.ui.main.admin.ui.operation
 
 import android.os.Bundle
 import android.view.LayoutInflater
